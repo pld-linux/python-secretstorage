@@ -22,12 +22,18 @@ BuildRequires:	rpmbuild(macros) >= 1.714
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.7
 BuildRequires:	python-setuptools
+%if %{with tests}
+BuildRequires:	python-discover
+%endif
 %endif
 %if %{with python3}
 BuildRequires:	python3-modules >= 1:3.2
 BuildRequires:	python3-setuptools
 %if %{with doc}
 BuildRequires:	python3-Sphinx
+%endif
+%if %{with tests}
+BuildRequires:	python3-discover
 %endif
 %endif
 Requires:	python-modules >= 1:2.7
