@@ -8,13 +8,13 @@
 Summary:	Python 2 bindings to Freedesktop.org Secret Service API
 Summary(pl.UTF-8):	Wiązania Pythona 2 do API Secret Service z Freedesktop.org
 Name:		python-secretstorage
-Version:	2.1.4
+Version:	2.2.1
 Release:	1
 License:	BSD
 Group:		Libraries/Python
 #Source0Download: https://pypi.python.org/simple/secretstorage
-Source0:	https://pypi.python.org/packages/c9/b0/833d13a07319ff9b9815d1683c5ece719f6e467b8217c1c6a42bc37a3aa9/SecretStorage-%{version}.tar.gz
-# Source0-md5:	80ca4a4a0614daf45ee3d0fb17eb41cd
+Source0:	https://pypi.python.org/packages/24/af/50f2324784ee65e2b752624144249c7710e761be437dd82815ff86d3021f/SecretStorage-%{version}.tar.gz
+# Source0-md5:	9a6f9e4c9962e6cd616624c331fce1ab
 URL:		https://github.com/mitya57/secretstorage
 BuildRequires:	rpm-pythonprov
 # for the py_build, py_install macros
