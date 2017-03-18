@@ -8,34 +8,35 @@
 Summary:	Python 2 bindings to Freedesktop.org Secret Service API
 Summary(pl.UTF-8):	Wiązania Pythona 2 do API Secret Service z Freedesktop.org
 Name:		python-secretstorage
-Version:	2.2.1
-Release:	2
+Version:	2.3.1
+Release:	1
 License:	BSD
 Group:		Libraries/Python
 #Source0Download: https://pypi.python.org/simple/secretstorage
-Source0:	https://pypi.python.org/packages/24/af/50f2324784ee65e2b752624144249c7710e761be437dd82815ff86d3021f/SecretStorage-%{version}.tar.gz
-# Source0-md5:	9a6f9e4c9962e6cd616624c331fce1ab
+Source0:	https://pypi.python.org/packages/a5/a5/0830cfe34a4cfd0d1c3c8b614ede1edb2aaf999091ac8548dd19cb352e79/SecretStorage-%{version}.tar.gz
+# Source0-md5:	3b9465831b069e2622973afb7deb7bc2
 URL:		https://github.com/mitya57/secretstorage
-BuildRequires:	rpm-pythonprov
-# for the py_build, py_install macros
-BuildRequires:	rpmbuild(macros) >= 1.714
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.7
 BuildRequires:	python-setuptools
 %if %{with tests}
-BuildRequires:	python-discover
+BuildRequires:	python-cryptography
+BuildRequires:	python-dbus
 %endif
 %endif
 %if %{with python3}
-BuildRequires:	python3-modules >= 1:3.2
+BuildRequires:	python3-modules >= 1:3.3
 BuildRequires:	python3-setuptools
 %if %{with doc}
 BuildRequires:	python3-Sphinx
 %endif
 %if %{with tests}
-BuildRequires:	python3-discover
+BuildRequires:	python3-cryptography
+BuildRequires:	python3-dbus
 %endif
 %endif
+BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.714
 Requires:	python-modules >= 1:2.7
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -58,7 +59,7 @@ Wykorzystuje API D-Bus Secret Service, obsługiwane przez GNOME Keyring
 Summary:	Python 3 bindings to Freedesktop.org Secret Service API
 Summary(pl.UTF-8):	Wiązania Pythona 3 do API Secret Service z Freedesktop.org
 Group:		Libraries/Python
-Requires:	python3-modules >= 1:3.2
+Requires:	python3-modules >= 1:3.3
 
 %description -n python3-secretstorage
 This module provides a way for securely storing passwords and other
@@ -140,5 +141,5 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with doc}
 %files apidocs
 %defattr(644,root,root,755)
-%doc build-3/sphinx/html/{_modules,_static,*.html,*.js}
+%doc build-3/sphinx/html/{_static,*.html,*.js}
 %endif
