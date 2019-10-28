@@ -9,7 +9,7 @@ Summary:	Python 2 bindings to Freedesktop.org Secret Service API
 Summary(pl.UTF-8):	Wiązania Pythona 2 do API Secret Service z Freedesktop.org
 Name:		python-secretstorage
 Version:	2.3.1
-Release:	2
+Release:	3
 License:	BSD
 Group:		Libraries/Python
 #Source0Download: https://pypi.python.org/simple/secretstorage
