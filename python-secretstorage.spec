@@ -12,8 +12,8 @@ Version:	2.3.1
 Release:	3
 License:	BSD
 Group:		Libraries/Python
-#Source0Download: https://pypi.python.org/simple/secretstorage
-Source0:	https://pypi.python.org/packages/a5/a5/0830cfe34a4cfd0d1c3c8b614ede1edb2aaf999091ac8548dd19cb352e79/SecretStorage-%{version}.tar.gz
+#Source0Download: https://pypi.org/simple/secretstorage/
+Source0:	https://files.pythonhosted.org/packages/source/S/SecretStorage/SecretStorage-%{version}.tar.gz
 # Source0-md5:	3b9465831b069e2622973afb7deb7bc2
 URL:		https://github.com/mitya57/secretstorage
 %if %{with python2}
