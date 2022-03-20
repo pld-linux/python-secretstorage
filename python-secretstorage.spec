@@ -3,11 +3,12 @@
 %bcond_without	doc	# Sphinx documentation
 %bcond_with	tests	# unit tests [require dbus and some Secret Service daemon running]
 %bcond_without	python2 # CPython 2.x module
-%bcond_without	python3 # CPython 3.x module
+%bcond_with	python3 # CPython 3.x module (built from python3-secretstorage.spec)
 
 Summary:	Python 2 bindings to Freedesktop.org Secret Service API
 Summary(pl.UTF-8):	Wiązania Pythona 2 do API Secret Service z Freedesktop.org
 Name:		python-secretstorage
+# keep 2.x here for python2 support
 Version:	2.3.1
 Release:	4
 License:	BSD
@@ -19,6 +20,9 @@ URL:		https://github.com/mitya57/secretstorage
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.7
 BuildRequires:	python-setuptools
+%if %{with doc}
+BuildRequires:	python-Sphinx
+%endif
 %if %{with tests}
 BuildRequires:	python-cryptography
 BuildRequires:	python-dbus
@@ -27,9 +31,6 @@ BuildRequires:	python-dbus
 %if %{with python3}
 BuildRequires:	python3-modules >= 1:3.3
 BuildRequires:	python3-setuptools
-%if %{with doc}
-BuildRequires:	python3-Sphinx
-%endif
 %if %{with tests}
 BuildRequires:	python3-cryptography
 BuildRequires:	python3-dbus
@@ -91,7 +92,7 @@ Dokumentacja API secretstorage.
 
 %build
 %if %{with python2}
-%py_build %{?with_tests:test}
+%py_build %{?with_tests:test} %{?with_doc:build_sphinx}
 
 %if %{with tests}
 %{__python} -m unittest discover -s tests
@@ -99,7 +100,7 @@ Dokumentacja API secretstorage.
 %endif
 
 %if %{with python3}
-%py3_build %{?with_tests:test} %{?with_doc:build_sphinx}
+%py3_build %{?with_tests:test}
 
 %if %{with tests}
 %{__python3} -m unittest discover -s tests
@@ -141,5 +142,5 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with doc}
 %files apidocs
 %defattr(644,root,root,755)
-%doc build-3/sphinx/html/{_static,*.html,*.js}
+%doc build-2/sphinx/html/{_static,*.html,*.js}
 %endif
